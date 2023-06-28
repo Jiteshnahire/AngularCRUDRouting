@@ -1,0 +1,72 @@
+<!-- <div class="container">
+    <div class="">
+        <div class="col-">
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </table>    
+        </div>
+    </div>
+</div> -->
+<section  class="container">
+    
+    <table class="table">
+      <thead>
+        <tr>        
+          <th>Deptid</th>
+          <th>Deptname</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let department of deptList">
+         
+         <td>{{department['deptid']}}</td>
+         <td>{{department['deptname']}}</td>
+         
+          <td>
+            <button class="btn btn-primary">Edit</button> |
+            <button class="btn btn-danger" (click)="deleteDept(department.deptid)">Delete</button>
+            <button class="btn btn-danger" (click)="updateDept(department.deptid)">Update</button>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+  </section>
+  
+  <section>
+  <form [formGroup]="deptDetail">
+    <div class="container">
+      <br/>
+      <h5>Add Department</h5>
+      
+      <div class="row">
+        <div class="col-6">
+          <div class="form-floating mb-3">
+            <input type="deptid" class="form-control" id="floatingInput" formControlName="Deptid" placeholder="Deptid">
+            <label for="floatingInput">Deptid</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-floating mb-3">
+            <input type="deptname" class="form-control" id="floatingInput" formControlName="Deptname" placeholder="Deptname">
+            <label for="floatingInput">Deptname</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-floating mb-3">
+            <input type="submit" value="Save"  class="btn btn-primary" (click)="saveDepartement()"/>
+       
+            <input type="submit" value="Cancel"  class="btn btn-primary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </section>
